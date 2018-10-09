@@ -18,20 +18,20 @@ Content moderation:
 ## Team Members
 April Cai ([@aaabbbjj](https://github.com/aaabbbjj))
 <p align="center">
-    <img height="300px" src="https://github.com/shuyang1995/Q-master/blob/master/April.jpg" alt="April Photo">
+    <img height="300px" src="https://github.com/scalableinternetservices/HotPot/blob/master/misc/April.jpg" alt="April Photo">
 </p>
 
 Boyuan Feng ([@BoyuanFeng](https://github.com/BoyuanFeng))
 <p align="center">
-    <img height="300px" src="https://github.com/shuyang1995/Q-master/blob/master/Boyuan.jpg" alt="Boyuan Feng Photo">
+    <img height="300px" src="https://github.com/scalableinternetservices/HotPot/blob/master/misc/Boyuan.jpg" alt="Boyuan Feng Photo">
 </p>
 
 Shu Yang ([@shuyang1995](https://github.com/shuyang1995))
 <p align="center">
-    <img height="300px" src="https://github.com/shuyang1995/Q-master/blob/master/Shu.jpg" alt="Shu Yang Photo">
+    <img height="300px" src="https://github.com/scalableinternetservices/HotPot/blob/master/misc/Shu.jpg" alt="Shu Yang Photo">
 </p>
 
 Zimu Yang ([@Niffery](https://github.com/Niffery))
 <p align="center">
-    <img height="300px" src="https://github.com/shuyang1995/Q-master/blob/master/Zimu.jpeg" alt="Zimu Yang Photo">
+    <img height="300px" src="https://github.com/scalableinternetservices/HotPot/blob/master/misc/Zimu.jpeg" alt="Zimu Yang Photo">
 </p>
