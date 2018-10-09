@@ -14,6 +14,8 @@ Answer recommendations:
 
 Content moderation:
 1.Upvote/Downvote: Users can rank answers based on how relevant or helpful they found the answers to be. This feature helps maintain the quality of content posted online.The more upvotes an answer receives, the higher it is ranked, and it shows up on top of the searches related to the question. If an answer is ranked poorly, it is “collapsed” and will not show up in people’s feeds.
+Jira board for tracking stories:
+https://github.com/shuyang1995/Q-master/projects/1
 
 ## Team Members
 April Cai ([@aaabbbjj](https://github.com/aaabbbjj))
