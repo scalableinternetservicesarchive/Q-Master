@@ -15,6 +15,11 @@ Answer recommendations:
 Content moderation:
 1.Upvote/Downvote: Users can rank answers based on how relevant or helpful they found the answers to be. This feature helps maintain the quality of content posted online.The more upvotes an answer receives, the higher it is ranked, and it shows up on top of the searches related to the question. If an answer is ranked poorly, it is “collapsed” and will not show up in people’s feeds.
 
+## Entity Relation Model
+<p align="center">
+        <img height="300px" src="https://github.com/scalableinternetservices/Q-Master/blob/master/misc/EntityRelationModel.png" alt="Entity Relation Model">
+</p>
+
 ## Team Members
 April Cai ([@aaabbbjj](https://github.com/aaabbbjj))
 <p align="center">
