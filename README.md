@@ -2,7 +2,6 @@
 
 
 ## Overview
-----
 Q-master is a quora-style, question-and-answer site where all kinds of questions are asked, answered, edited, and organized by its community of users in the form of opinions. 
 
 It is highly interactive with best responses upvoted by others in the following methods:
