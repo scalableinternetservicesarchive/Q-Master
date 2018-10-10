@@ -17,7 +17,7 @@ Content moderation:
 
 ## Entity Relation Model
 <p align="center">
-        <img height="300px" src="https://github.com/scalableinternetservices/Q-Master/blob/master/misc/EntityRelationModel.jpg" alt="Entity Relation Model">
+        <img height="300px" src="https://github.com/scalableinternetservices/Q-Master/blob/master/misc/EntityRelationModel.png" alt="Entity Relation Model">
 </p>
 
 ## Team Members
