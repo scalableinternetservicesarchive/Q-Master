@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-	has_many :articles
+	has_many :articles, dependent: :destroy
   	before_save { self.email = email.downcase }
    before_create :create_remember_token
   	validates :name, presence: true, length: { maximum: 50 }
