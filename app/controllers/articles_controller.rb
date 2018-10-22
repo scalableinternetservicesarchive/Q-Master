@@ -1,6 +1,7 @@
 class ArticlesController < ApplicationController
-  
 
+  before_action :signed_in_user, only: [:create, :destroy]
+  before_action :correct_user, only: :destroy
   def index
     @articles = Article.all
   end
@@ -18,11 +19,13 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    @article = Article.new(article_params)
+    @article = current_user.articles.build(article_params)
 
     if @article.save
+	 	flash[:success] = "Article created!"
       redirect_to @article
     else
+	 	@feed_items = []
       render 'new'
     end
   end
@@ -38,10 +41,8 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
-    @article = Article.find(params[:id])
     @article.destroy
-
-    redirect_to articles_path
+    redirect_to root_url
   end
 
 
@@ -50,4 +51,8 @@ class ArticlesController < ApplicationController
       params.require(:article).permit(:title, :text)
     end
 
+	 def correct_user
+		@article = current_user.articles.find_by(id: params[:id])
+		redirect_to root_url if @article.nil?
+	 end
 end

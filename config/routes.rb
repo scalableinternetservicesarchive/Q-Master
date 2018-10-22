@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 #  get 'welcome/index'
   resources :sessions, only: [:new, :create, :destory]
   resources :users
+#  resources :articles
+#  resources :comments
   resources :articles do
     resources :comments
   end
