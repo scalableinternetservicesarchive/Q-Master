@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :questions
 #  get 'welcome/index'
   resources :sessions, only: [:new, :create, :destory]
   resources :users
