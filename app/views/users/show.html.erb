@@ -9,6 +9,9 @@
       </section>
    </aside>
 	<div class="span8">
+	<section>
+		<%= render 'shared/article_form' %>
+	</section>
 	<% if @user.articles.any? %>
       <h3>Answers I post</h3>
       <ol class="articles">
