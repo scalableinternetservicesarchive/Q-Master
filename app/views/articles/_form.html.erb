@@ -1,9 +1,9 @@
-<%= form_with model: @article, local: true do |form| %>
+<%= form_with(model: [ @question, @question.articles.build ], local: true) do |form| %>
 
-  <% if @article.errors.any? %>
+  <% if !@question.nil? && @question.errors.any? %>
     <div id="error_explanation">
       <h2>
-        <%= pluralize(@article.errors.count, "error") %> prohibited this article from being saved:
+        <%= pluralize(@question.errors.count, "error") %> prohibited this article from being saved:
       </h2>
       <ul>
         <% @article.errors.full_messages.each do |msg| %>
@@ -14,7 +14,7 @@
   <% end %>
 
   <p>
-    <%= form.label :text %><br>
+    <%= form.label :'My Answer' %><br>
     <%= form.text_area :text %>
   </p>
 

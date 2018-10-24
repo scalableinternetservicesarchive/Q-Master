@@ -1,18 +1,16 @@
 class QuestionsController < ApplicationController
-  before_action :set_question, only: [:show, :edit, :update, :destroy]
 
-  # GET /questions
-  # GET /questions.json
+  before_action :signed_in_user, only: [:create, :destroy]
+  before_action :correct_user, only: :destroy
+
   def index
-    @questions = Question.all
+    @questions = Question.paginate(page: params[:page], per_page: 10)
   end
 
-  # GET /questions/1
-  # GET /questions/1.json
   def show
+  	 @question = Question.find(params[:id])
   end
 
-  # GET /questions/new
   def new
     @question = Question.new
   end
@@ -24,51 +22,40 @@ class QuestionsController < ApplicationController
   # POST /questions
   # POST /questions.json
   def create
-    @question = Question.new(question_params)
-
-    respond_to do |format|
-      if @question.save
-        format.html { redirect_to @question, notice: 'Question was successfully created.' }
-        format.json { render :show, status: :created, location: @question }
-      else
-        format.html { render :new }
-        format.json { render json: @question.errors, status: :unprocessable_entity }
-      end
+    @question = current_user.questions.build(question_params)
+	 
+	 if @question.save
+		flash[:suceess] = "New question posted"
+	 else
+	 	flash[:error] = "Unexpected Error!"
     end
   end
 
   # PATCH/PUT /questions/1
   # PATCH/PUT /questions/1.json
   def update
-    respond_to do |format|
-      if @question.update(question_params)
-        format.html { redirect_to @question, notice: 'Question was successfully updated.' }
-        format.json { render :show, status: :ok, location: @question }
-      else
-        format.html { render :edit }
-        format.json { render json: @question.errors, status: :unprocessable_entity }
-      end
-    end
   end
 
   # DELETE /questions/1
   # DELETE /questions/1.json
   def destroy
     @question.destroy
-    respond_to do |format|
-      format.html { redirect_to questions_url, notice: 'Question was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+	 redirect_to root_url
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_question
-      @question = Question.find(params[:id])
-    end
-
     # Never trust parameters from the scary internet, only allow the white list through.
     def question_params
-      params.require(:question).permit(:content, :user_id)
+      params.require(:question).permit(:content)
     end
+
+	 def correct_user
+		@question = current_user.questions.find_by(id: params[:id])
+		redirect_to root_url if @question.nil?
+	 end
+
+	 def admin_user
+	 	redirect_to(root_path) unless current_user.admin?
+	 end
+
 end

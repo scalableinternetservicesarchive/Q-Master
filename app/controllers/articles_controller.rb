@@ -20,11 +20,12 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    @article = current_user.articles.build(article_params)
-
+	 @question = Question.find(params[:question_id])
+    @article = @question.articles.build(article_params)
+    @article.user_id = current_user.id
     if @article.save
 	 	flash[:success] = "Article created!"
-      redirect_to @article
+      redirect_to @question
     else
 	 	@feed_items = []
       render 'new'
@@ -49,7 +50,7 @@ class ArticlesController < ApplicationController
 
   private
     def article_params
-      params.require(:article).permit(:title, :text)
+      params.require(:article).permit(:text)
     end
 
 	 def correct_user

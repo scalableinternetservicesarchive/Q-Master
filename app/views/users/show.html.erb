@@ -12,6 +12,14 @@
 	<section>
 		<%= render 'shared/article_form' %>
 	</section>
+	<% if @user.questions.any? %>
+		<h3> Questions I have asked</h3>
+		<ol class="questions">
+			<%= render @questions %>
+		</ol>
+		<%= will_paginate @questions %>
+	<% end %>
+
 	<% if @user.articles.any? %>
       <h3>Answers I post</h3>
       <ol class="articles">

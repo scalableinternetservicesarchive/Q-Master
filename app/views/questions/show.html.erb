@@ -1,14 +1,21 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Content:</strong>
+  <strong>Content:<br></strong>
   <%= @question.content %>
 </p>
 
+<% if @question.articles.any? %>
+	<%= render @question.articles %>
+<% end %>
+
 <p>
-  <strong>User:</strong>
-  <%= @question.user_id %>
+  <strong>Posted by:<br></strong>
+  <%= @question.user.name %>
 </p>
+
+<h2> Add an answer </h2>
+	<%= render 'articles/form' %>
 
 <%= link_to 'Edit', edit_question_path(@question) %> |
 <%= link_to 'Back', questions_path %>
