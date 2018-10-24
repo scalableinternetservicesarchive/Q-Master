@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<% if signed_in? %>
+	<div class="row">
+		<aside class="span4">
+			<section>
+				<%= render 'shared/user_info' %>
+			</section>
+			<section>
+				<%= render 'shared/article_form' %>
+			</section>
+		</aside>
+		<div class="span8">
+			<h3>Questions I have asked</h3>
+			<%= render 'shared/feed' %>
+		</div>
+	</div>
+<% else %>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>test9-11</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheets" type="text/css" media="screen" href="static_pages.scss" />
+</head>
+<body>
+        <div>
+            <div class="center hero-unit" id="title">Q-MASTER</div>
+            <div class="center hero-unit" id="titlebottom">
+                Ask anything, know everything
+            </div>
+						<div class="center hero-unit" id="login">
+							<h1> Share your questions and answers </h1>
+							<div>CREATE YOUR ACCOUNT</div>
+							<div>IT IS ABSOLUTELY FREE</div>
+						<%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
+						</div>
+
+        </div>
+
+</body>
+</html>
+<% end %>

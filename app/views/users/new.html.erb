@@ -1,5 +1,23 @@
-<h1>New User</h1>
+<% provide(:title, 'Sign up') %>
 
-<%= render 'form', user: @user %>
+<h1>Sign up</h1>
 
-<%= link_to 'Back', users_path %>
+<div class="row">
+   <div class="span6 offset3">
+      <%= form_for(@user) do |f| %>
+         <%= render 'shared/error_messages', object: f.object %>
+         <%= f.label :name %>
+         <%= f.text_field :name, style: 'color: #000; align = "center";width: 40%; display: block; margin-left:350px' %>
+
+         <%= f.label :email %>
+         <%= f.text_field :email, style: 'color: #000; align = "center"; width: 40%; display: block; block; margin-left:350px'%>
+
+         <%= f.label :password %>
+         <%= f.password_field :password,style: 'color: #000; align = "center"; width: 40%; display: block; block; margin-left:350px'%>
+         <%= f.label :password_confirmation, "Confirmation" %>
+
+         <%= f.password_field :password_confirmation, style: 'color: #000; align = "center"; width: 40%; display: block; block; margin-left:350px'%>
+         <%= f.submit "Create my account", style: 'margin-top:10px', class: "btn btn-large btn-primary" %>
+      <% end %>
+   </div>
+</div>
