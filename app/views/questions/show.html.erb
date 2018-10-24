@@ -6,7 +6,12 @@
 </p>
 
 <% if @question.articles.any? %>
-	<%= render @question.articles %>
+	<% @question.articles.each do |article| %>
+		<%= render article %>
+		<% if article.comments.any? %>
+			<%= render article.comments %>
+		<% end %>
+	<% end %>	
 <% end %>
 
 <p>
