@@ -1,3 +1,78 @@
 // Place all the styles related to the StaticPages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import "bootstrap";
+body {
+    font-family: "Microsoft Yahei", sans-serif;
+    //font-weight: lighter;
+    background-image: url("cover.jpg");
+    z-index: -1;
+    color: white;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    margin: 0 auto;
+    //background-size: auto;
+    background-size: 1500px, 590px;
+}
+
+
+#title {
+    display: inline-block;
+    font-size: 64px;
+    padding-top: -50px;
+    width: 960px;
+    align: center;
+}
+
+#titlebottom {
+    display: inline-block;
+    box-sizing: border-box;
+    width: 960px;
+    font-size: 38px;
+    padding: 70px 70px 100px 70px;
+    align: center;
+}
+
+#titlebelow {
+    display: inline-block;
+    box-sizing: border-box;
+    width: 960px;
+    font-size: 20px;
+    padding: 70px 70px 70px 30px;
+    align: center;
+}
+
+#login {
+    display: inline-block;
+    box-sizing: border-box;
+    border: 1px solid white;
+    width: 860px;
+    padding: 30px 70px 30px 70px;
+    align: center;
+    height: 240px;
+    font-size: 20px;
+}
+
+/*
+#login div:first-child {
+    font-size: 20px;
+    transform: scale(1.2, 1);
+    padding-top: 60px;
+    padding-bottom: 15px;
+}
+
+#login div:nth-child(2) {
+    font-size: 1em;
+    transform: scale(1.2, 1);
+    color: rgb(90, 90, 90);
+}
+
+#login div input:nth-child(3) {
+    width: 120px;
+    height: 50px;
+    background-color: #000000;
+    color: #ffffff;
+    border: none;
+}
+*/
