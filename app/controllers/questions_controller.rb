@@ -29,6 +29,7 @@ class QuestionsController < ApplicationController
 	 else
 	 	flash[:error] = "Unexpected Error!"
     end
+	 redirect_to(user_path(current_user))
   end
 
   # PATCH/PUT /questions/1
