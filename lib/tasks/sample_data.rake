@@ -20,9 +20,8 @@ namespace :db do
 
 	 ad = User.first
 	 50.times do
-	 	t = Faker::Lorem.sentence(5)
 		c = Faker::Lorem.sentence(6)
-		ad.articles.create!(title: t, text: c)
+		ad.articles.create!(text: c)
 	 end
 	end
 end
