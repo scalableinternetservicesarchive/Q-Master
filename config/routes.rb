@@ -4,12 +4,17 @@ Rails.application.routes.draw do
   end
 #  get 'welcome/index'
   resources :sessions, only: [:new, :create, :destory]
-  resources :users
+  resources :users do
+	 member do
+	 	get :following, :followers
+	 end
+  end
 #  resources :articles
 #  resources :comments
   resources :articles do
     resources :comments
   end
+  resources :relationships, only: [:create, :destroy]
 
   root  'static_pages#home'
   match '/signup', to: 'users#new', via:'get'
