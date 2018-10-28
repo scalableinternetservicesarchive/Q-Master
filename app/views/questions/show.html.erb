@@ -19,8 +19,7 @@
   <%= @question.user.name %>
 </p>
 
-<h2> Add an answer </h2>
+<h2> Post my answer </h2>
 	<%= render 'articles/form' %>
 
-<%= link_to 'Edit', edit_question_path(@question) %> |
 <%= link_to 'Back', questions_path %>

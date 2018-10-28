@@ -21,7 +21,7 @@
 		<ol class="questions">
 			<%= render @questions %>
 		</ol>
-		<%= will_paginate @questions %>
+		<%= will_paginate @questions, :param_name => 'questions_page' %>
 	<% end %>
 
 	<% if @user.articles.any? %>
@@ -29,7 +29,7 @@
       <ol class="articles">
         <%= render @articles %>
       </ol>
-      <%= will_paginate @articles %>
+      <%= will_paginate @articles, :param_name => 'articles_page' %>
     <% end %>
 	</div>
 </div>
