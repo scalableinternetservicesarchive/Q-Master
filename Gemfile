@@ -9,6 +9,11 @@ gem 'rails', '~> 5.2.1'
 gem 'bootstrap-sass'
 gem 'bcrypt'
 gem 'faker'
+
+gem 'carrierwave'
+gem 'mini_magick'
+
+
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
 gem 'ransack'

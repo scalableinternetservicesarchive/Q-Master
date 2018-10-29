@@ -1,6 +1,8 @@
 <li>
   <span class="content">
-  <%= link_to article.text, article %></span>
+    <%= article.text %>
+    <%= image_tag article.picture.url if article.picture? %>
+  </span>
   <span class="timestamp">
     Posted <%= time_ago_in_words(article.created_at) %> ago.
   </span>

@@ -3,6 +3,7 @@ class Article < ApplicationRecord
   belongs_to :question
   has_many :comments, dependent: :destroy
   default_scope -> { order('created_at DESC')}
+  mount_uploader :picture, PictureUploader
   validates :user_id, presence: true
   validates :question_id, presence: true
   validates :text, presence: true,

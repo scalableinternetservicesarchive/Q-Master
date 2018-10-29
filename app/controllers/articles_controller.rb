@@ -50,7 +50,7 @@ class ArticlesController < ApplicationController
 
   private
     def article_params
-      params.require(:article).permit(:text)
+      params.require(:article).permit(:text, :picture)
     end
 
 	 def correct_user
