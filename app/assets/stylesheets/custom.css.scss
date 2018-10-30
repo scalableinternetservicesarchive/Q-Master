@@ -1,7 +1,7 @@
 @import "bootstrap";
 
-$lightGray: #444;
-$grayMediumLight: #eaeaea;
+$lightGray: #000;
+$grayMediumLight: #000;
 
 .microposts {
   list-style: none;
@@ -214,7 +214,7 @@ textarea {
     float: left;
     padding: 0 10px;
     border-left: 1px solid $lightGray;
-    color: gray;
+    color: #000;
     &:first-child {
       padding-left: 0;
 		border: 0; }
