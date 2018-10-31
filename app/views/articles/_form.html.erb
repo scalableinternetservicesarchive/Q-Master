@@ -24,7 +24,8 @@
 
    <div class="picture">
     <%= form.label :picture %><br>
-    <%= form.file_field :picture %>
+    <%= form.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
   </div>
 
 <% end %>
+
