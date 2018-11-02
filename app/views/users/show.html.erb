@@ -13,23 +13,58 @@
    </aside>
 	<div class="span8">
 		<%= render 'follow_form' if signed_in? %>
-	<section>
+	</div>
+	<section align="left">
 		<%= render 'shared/question_form' %>
 	</section>
-	<% if @user.questions.any? %>
-		<h3> Questions I have asked</h3>
-		<ol class="questions">
-			<%= render @questions %>
-		</ol>
-		<%= will_paginate @questions, :param_name => 'questions_page' %>
-	<% end %>
+	<br><br><br>
+</div>
 
-	<% if @user.articles.any? %>
-      <h3>Answers I post</h3>
-      <ol class="articles">
-        <%= render @articles %>
-      </ol>
-      <%= will_paginate @articles, :param_name => 'articles_page' %>
-    <% end %>
+<div align="left">
+	<ul class="nav nav-tabs" role="tablist">
+	 <% if params[:active_tab] == 'questions' %>
+		<li class="active">
+	 <% else %>
+	 	<li>
+	 <% end %>
+    <a href="#questions" aria-controls="questions" role="tab" data-toggle="tab">Questions</a></li>
+     <% if params[:active_tab] == 'answers' %>
+		<li class="active">
+	 <% else %>
+	 	<li>
+	 <% end %>
+		<a href="#answers" aria-controls="answers" role="tab" data-toggle="tab">Answers</a></li>
+   </ul>
+	 <div class="tab-content">
+	 	<% if params[:active_tab] == 'questions' %>
+		<div class="tab-pane active" id="questions">
+		<% else %>
+		<div class="tab-pane" id="questions">
+		<% end %>
+		<% if @user.questions.any? %>
+			<h3> Questions I have asked</h3>
+			<ol class="questions">
+				<%= render @questions %>
+			</ol>
+			<%= will_paginate @questions, :param_name => 'questions_page', params: {active_tab: 'questions'} %>
+		<% else %>
+			<h3> I haven't posted any questions</h3>
+		<% end %>
+		</div>
+		<% if params[:active_tab] == 'answers' %>
+		<div class="tab-pane active" id="answers">
+		<% else %>
+		<div class="tab-pane" id="answers">
+		<% end %>
+			<% if @user.articles.any? %>
+      		<h3>Answers I post</h3>
+      		<ol class="articles">
+        			<%= render @articles %>
+      		</ol>
+      		<%= will_paginate @articles, :param_name => 'articles_page', params: {active_tab: 'answers'} %>
+			<% else %>
+				<h3>I haven't posted any answers</h3>
+    		<% end %>
+		</div>
 	</div>
 </div>

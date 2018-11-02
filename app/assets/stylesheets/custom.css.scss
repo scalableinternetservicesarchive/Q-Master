@@ -93,11 +93,11 @@ footer {
   padding-top: 50px;
   border-top: 1px solid #eaeaea;
   //color: $lightGray;
-  color: #fff;
+  color: #000;
   a{
-    color: #fff;
+    color: #000;
      &:hover {
-    color: #fff;
+    color: #000;
    }
   }
   small {
@@ -117,7 +117,7 @@ footer {
   float: center;
   margin-right: 10px;
   font-size: 1.2em;
-  color: #fff;
+  color: #000;
   text-transform: uppercase;
   letter-spacing: -1px;
   padding-top: 50px;
@@ -126,7 +126,7 @@ footer {
   font-weight: bold;
   line-height: 2;
   &:hover {
-    color: #fff;
+    color: #000;
     text-decoration: none;
   }
 }
@@ -174,7 +174,7 @@ h2 {
   text-align: center;
   font-weight: normal;
   color: $lightGray;
-  //color: #fff;
+  //color: #000;
 }
 
 p {

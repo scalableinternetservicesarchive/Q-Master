@@ -16,8 +16,8 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
 	 @question = @user.questions.build()
-	 @articles = @user.articles.paginate(page: params[:articles_page], per_page: 1 )
-	 @questions = @user.questions.paginate(page: params[:questions_page], per_page: 1 )
+	 @articles = @user.articles.paginate(page: params[:articles_page], per_page: 10 )
+	 @questions = @user.questions.paginate(page: params[:questions_page], per_page: 10 )
   end
 
   def new

@@ -1,7 +1,6 @@
 <% provide(:titile, 'Questions') %>
 <h1>All Questions</h1>
 
-<%= will_paginate %>
 <ul class="users">
 	<table>
 		<thead>
@@ -16,8 +15,10 @@
    		<%=  render @questions %>
 		</tbody>
 	</table>
+	<aside align="left">
+		<%= will_paginate @questions %>
+	<aside>
 </ul>
 
-<%= will_paginate %>
 
 

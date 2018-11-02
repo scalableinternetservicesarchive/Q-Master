@@ -12,12 +12,21 @@
 				<%= render 'shared/question_form' %>
 			</section>
 		</aside>
-		<div class="span8">
-			<h3>Questions I have asked</h3>
-			<%= render 'shared/feed' %>
-		</div>
-		<div class="span8">
-			<h3>Answers I have posted</h3>
+		<div>
+			<ul class="nav nav-tabs" role="tablist">
+    		<li role="presentation" class="active"><a href="#questions" aria-controls="questions" role="tab" data-toggle="tab">Questions</a></li>
+    		<li role="presentation"><a href="#answers" aria-controls="answers" role="tab" data-toggle="tab">Answers</a></li>
+  			</ul>
+			<div class="tab-content">
+    			<div role="tabpanel" class="tab-pane active" id="questions">
+					<h4 align="left">Question i have asked</h3>
+					<%= render 'shared/feed' %>
+				</div>
+    			<div role="tabpanel" class="tab-pane" id="answers">
+					<h4 align="left">Question i have asked</h3>
+					<%= render 'shared/feed' %>
+				</div>
+  			</div>
 		</div>
 	</div>
 <% else %>
