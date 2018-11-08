@@ -2,6 +2,11 @@ Rails.application.routes.draw do
   resources :questions do
 	 resources :articles
   end
+  resources :articles do
+	 member do 
+	 	put "like" => "articles#vote"
+	 end
+  end
 #  get 'welcome/index'
   resources :sessions, only: [:new, :create, :destory]
   resources :users do

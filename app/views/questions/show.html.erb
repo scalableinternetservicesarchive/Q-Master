@@ -8,6 +8,12 @@
 <% if @question.articles.any? %>
 	<% @question.articles.each do |article| %>
 		<%= render article %>
+		<%= link_to like_article_path(article), class: "like-btn", method: :put, remote: :true, 
+		 data: {id: article.id} do %>
+		like
+		<% end %>
+		<span class="likes-count" id="article-<%= article.id %>">
+		<%= article.get_upvotes.size %> </span>
 		<% if article.comments.any? %>
 			<%= render article.comments %>
 		<% end %>
@@ -18,7 +24,6 @@
   <strong>Posted by:<br></strong>
   <%= @question.user.name %>
 </p>
-
 <h2> Post my answer </h2>
 	<%= render 'articles/form' %>
 

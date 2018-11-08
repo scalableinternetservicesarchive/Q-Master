@@ -47,6 +47,18 @@ class ArticlesController < ApplicationController
     redirect_to root_url
   end
 
+  def vote
+  	 @article = Article.find(params[:id])
+	 if !current_user.liked? @article
+		@article.liked_by current_user
+	 else
+		@article.unliked_by current_user
+	 end
+	 respond_to do |format|
+		format.html
+		format.js
+	 end
+  end
 
   private
     def article_params

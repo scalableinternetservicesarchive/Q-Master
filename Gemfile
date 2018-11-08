@@ -9,7 +9,7 @@ gem 'rails', '~> 5.2.1'
 gem 'bootstrap-sass'
 gem 'bcrypt'
 gem 'faker'
-
+gem 'acts_as_votable', '~> 0.11.1'
 gem 'carrierwave'
 gem 'mini_magick'
 
