@@ -1,14 +1,16 @@
-<li>
-  <span class="content">
+<div align="left">
+  
+  <h4 class="content">
     <%= article.text %>
     <%= image_tag article.picture.url if article.picture? %>
-  </span>
-  <span class="timestamp">
+  </h4>
+  <h5>Posted by:<%= article.user.name %></h5>
+  <h5 class="timestamp">
     Posted <%= time_ago_in_words(article.created_at) %> ago.
-  </span>
+  </h5>
   <% if current_user?(article.user) %>
     <%= link_to "delete", article, method: :delete,
 	 											 data: { confirm: "You sure?" },
 												 title: article.text %>
   <% end %>
-</li>
+</div>

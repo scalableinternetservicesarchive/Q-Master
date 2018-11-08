@@ -1,7 +1,8 @@
 <tr>
-  <td class="content"> <%= link_to question.content, question %> </td>
+  <td class="content"> 
+  <%= link_to question.content[0..30], question %> </td>
   <td class="question_user"> <%= question.user.name %> </td>
   <td class="timestamp">
-    Posted <%= time_ago_in_words(question.created_at) %> ago.
+    Posted <%= question.created_at %>
   </td>
 </tr>

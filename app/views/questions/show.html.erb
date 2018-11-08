@@ -1,10 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Content:<br></strong>
+<h1>
+  <strong>Content:</strong>
   <%= @question.content %>
-</p>
+</h1>
+<br>
+ <strong>Posted by:</strong>
+  <%= @question.user.name %>
 
+<div align="left">
+<h2>Answers</h2>
 <% if @question.articles.any? %>
 	<% @question.articles.each do |article| %>
 		<%= render article %>
@@ -19,12 +24,11 @@
 		<% end %>
 	<% end %>	
 <% end %>
+</div>
 
-<p>
-  <strong>Posted by:<br></strong>
-  <%= @question.user.name %>
-</p>
-<h2> Post my answer </h2>
+<div align="left">
+
+<br> <br>
 	<%= render 'articles/form' %>
+</div>
 
-<%= link_to 'Back', questions_path %>

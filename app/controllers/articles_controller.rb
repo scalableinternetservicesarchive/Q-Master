@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
 
-  before_action :signed_in_user, only: [:create, :destroy]
+  before_action :signed_in_user, only: [:create, :destroy, :vote]
   before_action :correct_user, only: :destroy
   before_action :admin_user, only: :index
   def index

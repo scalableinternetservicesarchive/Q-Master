@@ -4,7 +4,12 @@ class QuestionsController < ApplicationController
   before_action :correct_user, only: :destroy
 
   def index
-    @questions = Question.paginate(page: params[:page], per_page: 10)
+    @q = Question.ransack(params[:q])
+	 @questions = @q.result(distinct: true).paginate(page: params[:page], per_page: 10)
+	 respond_to do |format|
+		format.html
+		format.js
+	 end
   end
 
   def show

@@ -1,6 +1,12 @@
 <% provide(:titile, 'Questions') %>
 <h1>All Questions</h1>
 
+<%= search_form_for @q do |f| %>
+	<%= f.label :content_cont %>
+  	<%= f.search_field :content_cont %>
+	<%= f.submit %>
+<% end %>
+
 <ul class="users">
 	<table>
 		<thead>
