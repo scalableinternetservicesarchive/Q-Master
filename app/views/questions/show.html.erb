@@ -13,12 +13,14 @@
 <% if @question.articles.any? %>
 	<% @question.articles.each do |article| %>
 		<%= render article %>
+		<% if false %>
 		<%= link_to like_article_path(article), class: "like-btn", method: :put, remote: :true, 
 		 data: {id: article.id} do %>
 		like
 		<% end %>
 		<span class="likes-count" id="article-<%= article.id %>">
 		<%= article.get_upvotes.size %> </span>
+		<% end %>
 		<% if article.comments.any? %>
 			<%= render article.comments %>
 		<% end %>
