@@ -24,7 +24,8 @@ float: left;
 }
 aside {
   textarea {
-    height: 100px;
+	 width: 500px;
+    height: 200px;
     margin-bottom: 5px;
   }
 }
@@ -66,18 +67,19 @@ aside {
 }
 
 
-input, textarea, select, .uneditable-input {
+textarea, select, .uneditable-input {
   border: 1px solid #bbb;
   width:  100%;
   padding: 10px;
   margin-bottom: 15px;
-  text-align: center;
+  text-align: left;
   vertical-align: middle;
 
   //color: #000000;
   @include box_sizing;
 }
 input {
+  width: 150px;
   height: auto !important;
 }
 .debug_dump {
