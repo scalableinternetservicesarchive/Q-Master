@@ -17,10 +17,9 @@
 		 data: {id: article.id} do %>
 		like
 		<% end %>
-		<% if false %>
 		<span class="likes-count" id="article-<%= article.id %>">
 		<%= article.get_upvotes.size %> </span>
-		<% end %>
+	
 		<% if article.comments.any? %>
 			<%= render article.comments %>
 		<% end %>
