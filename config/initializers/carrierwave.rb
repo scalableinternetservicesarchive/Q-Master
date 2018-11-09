@@ -2,8 +2,8 @@ CarrierWave.configure do |config|
   
   config.fog_credentials = {
     :provider               => 'AWS',                             # required
-    :aws_access_key_id      => 'AKIAIXMXQUT2L5ZSOZ5Q',            # required
-    :aws_secret_access_key  => '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',     # required
+    :aws_access_key_id      => '',            # required
+    :aws_secret_access_key  => '',     # required
     :region                 => 'us-west-2'                        # optional, defaults to 'us-east-1'
   }
   config.fog_directory  = 'elasticbeanstalk-us-west-2-671946291905'               # required
