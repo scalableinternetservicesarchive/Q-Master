@@ -19,7 +19,16 @@
 		<% end %>
 		<span class="likes-count" id="article-<%= article.id %>">
 		<%= article.get_upvotes.size %> </span>
-	
+		
+		<%= form_with(model: [ article, article.comments.build ], local: true) do |form| %>
+  		<p>
+    		<%= form.label :Content %><br>
+    		<%= form.text_area :body %>
+  		</p>
+  			<p>
+    		<%= form.submit %>
+  			</p>
+		<% end %>	
 		<% if article.comments.any? %>
 			<%= render article.comments %>
 		<% end %>

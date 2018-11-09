@@ -12,12 +12,12 @@ class CommentsController < ApplicationController
 	 else
 		falsh[:error]="Unknown error"
 	 end
-    redirect_to article_path(@article)
+    redirect_to question_path(@article.question)
   end
 
   def destroy
     @comment.destroy
-    redirect_to article_path(@article)
+    redirect_to  question_path(@article.question)
   end
 
 

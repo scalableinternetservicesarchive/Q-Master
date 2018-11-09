@@ -1,8 +1,11 @@
 <p>
   <strong>Comment:</strong>
-  <%= comment.body %>  	<b>posted by</b>  <%= comment.user.name %>
+  <%= comment.body %> <br>
+  <b>posted by</b>  
+  <% if !comment.user.nil? %>
+  		<%= comment.user.name %>
+	<% end %>
 </p>
-
 <% if !comment.user.nil? && current_user?(comment.user) %>
 <p>
   <%= link_to 'Destroy Comment', [comment.article, comment], method: :delete,
