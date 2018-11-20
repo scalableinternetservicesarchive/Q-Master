@@ -1,6 +1,6 @@
 <tr>
   <td class="content"> 
-  <%= link_to question.content[0..30], question %> </td>
+  <%= link_to question.title[0..30], question %> </td>
   <td class="question_user"> <%= question.user.name %> </td>
   <td class="timestamp">
     Posted <%= question.created_at %>
