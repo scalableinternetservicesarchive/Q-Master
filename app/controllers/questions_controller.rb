@@ -5,7 +5,7 @@ class QuestionsController < ApplicationController
 
   def index
     @q = Question.ransack(params[:q])
-	 @questions = @q.result(distinct: true).paginate(page: params[:page], per_page: 10)
+	 @questions = @q.result(distinct: true).paginate(page: params[:page])
 	 respond_to do |format|
 		format.html
 		format.js

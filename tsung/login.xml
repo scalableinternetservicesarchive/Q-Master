@@ -9,7 +9,7 @@
 
   <!-- Server side setup -->
   <servers>
-    <server host="localhost" port="80" type="tcp"></server>
+    <server host="test.nppuqyf9yy.us-west-2.elasticbeanstalk.com" port="80" type="tcp"></server>
   </servers>
 
 
@@ -31,7 +31,7 @@
   <sessions>
     <session name="http-example" probability="100" type="ts_http">
       <request subst="true">
-        <http url="/signin" method="POST" version="1.1" contents="session[email]=sam@guo.com&amp;session[password]=password&amp;commit=Login" content_type="application/x-www-form-urlencoded" />
+        <http url="/signin" method="GET" version="1.1" contents="session[email]=zimu@ucsb.com&amp;session[password]=123456&amp;commit=Login" content_type="application/x-www-form-urlencoded" />
       </request>
     </session>
   </sessions>
