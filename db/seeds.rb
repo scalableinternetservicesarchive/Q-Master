@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-=begin
+
 user_list = [
 	[ "zimu", "zimu@ucsb.com", "123456", "123456" ],
 	[ "boyuan", "boyuan@ucsb.com", "123456", "123456" ],
@@ -54,7 +54,7 @@ q_list = [
 	qtitle = rand 0..14
 	User.find(uid).questions.create( title: q_list[qtitle],content: q_list[qtitle])
 end
-=end
+
 
 a_list = [
 	"All possibilities open up when we stop deceiving ourselves.",
