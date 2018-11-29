@@ -9,13 +9,13 @@
 
   <!-- Server side setup -->
   <servers>
-    <server host="test.nppuqyf9yy.us-west-2.elasticbeanstalk.com" port="80" type="tcp"></server>
+    <server host="HotPot-test.nppuqyf9yy.us-west-2.elasticbeanstalk.com" port="80" type="tcp"></server>
   </servers>
 
 
   <load>
-    <arrivalphase phase="1" duration="1" unit="second">
-      <users arrivalrate="1" unit="second"></users>
+    <arrivalphase phase="1" duration="10" unit="second">
+      <users arrivalrate="0.1" unit="second"></users>
     </arrivalphase>
   </load>
 
@@ -30,9 +30,49 @@
 
   <sessions>
     <session name="http-example" probability="100" type="ts_http">
-      <request subst="true">
-        <http url="/signin" method="GET" version="1.1" contents="session[email]=zimu@ucsb.com&amp;session[password]=123456&amp;commit=Login" content_type="application/x-www-form-urlencoded" />
+      <request>
+        <http url='/sessions' version='1.1' method='POST' contents="session[email]=zimu@ucsb.com&amp;session[password]=123456&amp;commit=Sign+in" content_type="application/x-www-form-urlencoded"></http>
       </request>
+
+      <request>
+        <http url="/users" method="GET" version="1.1"/>
+      </request>
+
+      <request>
+        <http url="/users?q[name_cont]=boyuan&amp;commit=Search" method="GET" version="1.1" />
+      </request>
+
+      <request>
+        <http url="/relationships" method="POST" version="1.1" contents="relationship[followed_id]=2&amp;commit=Follow"/>
+      </request>
+
+      <request>
+        <http url="/questions" method="GET" version="1.1"/>
+      </request>
+
+      <request>
+        <http url="/questions" method="POST" version="1.1" contents="question[title]=why+so+many+people+choose+to+stay+single&amp;question[content]=People+are+getting+more+and+more+nowadays&amp;commit=Post"/>
+      </request>
+
+      <request>
+        <http url="/questions/2001/articles" method="POST" version="1.1" contents="article[text]=i+want+to+answer&amp;commit=Create+Article" />
+      </request>
+      <request>
+        <http url="/questions/2001/articles" method="POST" version="1.1" contents="article[text]=i+have+a+great+answer&amp;commit=Create+Article" />
+      </request>
+
+      <request>
+        <http url="/articles/332/comments" method="POST" version="1.1" contents="comment[body]=this+answer+is+really+great&amp;commit=Create+Comment" />
+      </request>
+
+      <request>
+        <http url="/articles/332/like" method="PUT" version="1.1" />
+      </request>
+
+      <request>
+        <http url="/signout" method="POST" version="1.1" contents="_method=delete"/>
+      </request>
+
     </session>
   </sessions>
 </tsung>
