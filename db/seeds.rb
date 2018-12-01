@@ -80,3 +80,15 @@ a_list = [
 	answer = q.articles.build(text: a_list[atitle], user_id: uid)
 	answer.save
 end
+
+50.times do
+	uid = User.ids.shuffle.first
+	q = Question.first
+	answer = q.articles.build(text: a_list[0], user_id: uid)
+	answer.save
+	20.times do
+	  	uid = User.ids.shuffle.first
+		c = answer.comments.create(body: a_list[0], user_id: uid)
+		c.save
+   end
+end
