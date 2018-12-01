@@ -18,7 +18,7 @@ class QuestionsController < ApplicationController
   def show
     #without pagination and includes is before and with is after
     @question = Question.find(params[:id])
-#@articles = @question.articles.includes(comments:[:user]).paginate(page: params[:page], per_page: 1)
+    @articles = @question.articles.includes(comments:[:user]).paginate(page: params[:page], per_page: 1)
   end
 
   def new

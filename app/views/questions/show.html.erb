@@ -15,7 +15,7 @@
 <div align="left">
 <h2>Answers</h2>
 <% if @question.articles.any? %>
-	<% @question.articles.each do |article| %>
+	<% @articles.each do |article| %>
 		<%= render article %>
 		<%= link_to like_article_path(article), class: "like-btn", method: :put, remote: :true, 
 		 data: {id: article.id} do %>
@@ -36,7 +36,8 @@
 		<% if article.comments.any? %>
 			<%= render article.comments %>
 		<% end %>
-	<% end %>	
+	<% end %>
+	<% will_paginate @articles %>
 <% end %>
 </div>
 
