@@ -16,7 +16,9 @@ class QuestionsController < ApplicationController
   end
 
   def show
-  	 @question = Question.find(params[:id])
+    #without pagination and includes is before and with is after
+    @question = Question.find(params[:id])
+#@articles = @question.articles.includes(comments:[:user]).paginate(page: params[:page], per_page: 1)
   end
 
   def new
