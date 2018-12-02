@@ -5,10 +5,11 @@ class QuestionsController < ApplicationController
 
   def index
    #before making optimizations
+=begin
     @q = Question.ransack(params[:q])
 	 @questions = @q.result.paginate(page: params[:page])
    #after making optimizations
-=begin
+=end
     if stale?(Question.all)
       @q = Question.includes(:user).ransack(params[:q])
 	   @questions = @q.result.paginate(page: params[:page])
@@ -17,14 +18,13 @@ class QuestionsController < ApplicationController
 		  format.js
 	   end
 	 end
-=end
   end
 
   def show
     #without pagination and includes is before and with is after
     @question = Question.find(params[:id])
     @articles = @question.articles.includes(comments:[:user]).paginate(page: params[:page], per_page: 1)
-#fresh_when([@question,@articles])
+	 fresh_when([@question,@articles])
   end
 
   def new

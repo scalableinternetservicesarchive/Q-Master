@@ -5,9 +5,10 @@ class UsersController < ApplicationController
   before_action :admin_user, only: :destroy
 
   def index
+=begin
 	 @q = User.ransack(params[:q])
 	 @users = @q.result.paginate(page: params[:page], per_page: 10)
-=begin
+=end
 	if stale?(User.all)
 	   @q = User.ransack(params[:q])
 	   @users = @q.result.paginate(page: params[:page], per_page: 10)
@@ -16,7 +17,6 @@ class UsersController < ApplicationController
 			format.js
 		end
 	 end
-=end
   end
 
   def show
@@ -24,7 +24,7 @@ class UsersController < ApplicationController
 	 @question = @user.questions.build()
 	 @articles = @user.articles.paginate(page: params[:articles_page], per_page: 10 )
 	 @questions = @user.questions.paginate(page: params[:questions_page], per_page: 10 )
-#fresh_when([@user, @articles, @questions])
+	 fresh_when([@user, @articles, @questions])
   end
 
   def new
