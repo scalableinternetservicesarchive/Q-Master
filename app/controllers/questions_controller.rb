@@ -5,11 +5,11 @@ class QuestionsController < ApplicationController
 
   def index
    #before making optimizations
+=begin
     @q = Question.ransack(params[:q])
 	 @questions = @q.result.paginate(page: params[:page])
-
+=end
    #after making optimizations
-=begin
     if stale?(Question.all)
       @q = Question.includes(:user).ransack(params[:q])
 	   @questions = @q.result.paginate(page: params[:page])
@@ -18,7 +18,6 @@ class QuestionsController < ApplicationController
 		  format.js
 	   end
 	 end
-=end
   end
 
   def show
