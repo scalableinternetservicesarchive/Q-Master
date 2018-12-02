@@ -9,7 +9,7 @@
 
   <!-- Server side setup -->
   <servers>
-    <server host="HotPot-Shu.nppuqyf9yy.us-west-2.elasticbeanstalk.com" port="80" type="tcp"></server>
+    <server host="after-sql-question-index.pgqcuypmi2.us-west-2.elasticbeanstalk.com" port="80" type="tcp"></server>
   </servers>
 
 
@@ -92,7 +92,7 @@ content_type="application/x-www-form-urlencoded" />
       
       <!-- User create answer -->
       <request subst="true">
-        <http url="/questions/4089/articles" method="POST" version="1.1" contents="article[text]=6666666666666&amp;commit=CreateArticle&amp;question_id=1"
+        <http url="/questions/1099/articles" method="POST" version="1.1" contents="article[text]=6666666666666&amp;commit=CreateArticle&amp;question_id=1"
 content_type="application/x-www-form-urlencoded" />
       </request>
       
@@ -129,18 +129,14 @@ content_type="application/x-www-form-urlencoded" />
       </request>
 
       <request>
-        <http url="/questions/4093/articles" method="POST" version="1.1" contents="article[text]=i+want+to+answer&amp;commit=Create+Article" />
+        <http url="/questions/1100/articles" method="POST" version="1.1" contents="article[text]=i+want+to+answer&amp;commit=Create+Article" />
       </request>
       <request>
-        <http url="/questions/4093/articles" method="POST" version="1.1" contents="article[text]=i+have+a+great+answer&amp;commit=Create+Article" />
-      </request>
-
-      <request>
-        <http url="/articles/4089/comments" method="POST" version="1.1" contents="comment[body]=this+answer+is+really+great&amp;commit=Create+Comment" />
+        <http url="/questions/1100/articles" method="POST" version="1.1" contents="article[text]=i+have+a+great+answer&amp;commit=Create+Article" />
       </request>
 
       <request>
-        <http url="/articles/4089/like" method="PUT" version="1.1" />
+        <http url="/articles/1099/comments" method="POST" version="1.1" contents="comment[body]=this+answer+is+really+great&amp;commit=Create+Comment" />
       </request>
 
       <request>
@@ -161,15 +157,11 @@ content_type="application/x-www-form-urlencoded" />
 
       <!-- Read Questions and Answers. Repeat for 50 times.-->
       <request>
-        <http url='/questions/4010' version='1.1' method='GET'></http>
+        <http url='/questions/1005' version='1.1' method='GET'></http>
       </request>
 
       <request>
-        <http url='/questions/4010' version='1.1' method='GET'></http>
-      </request>
-
-      <request>
-        <http url="/users" method="GET" version="1.1"/>
+        <http url='/questions/1005' version='1.1' method='GET'></http>
       </request>
 
       <request>
@@ -177,11 +169,15 @@ content_type="application/x-www-form-urlencoded" />
       </request>
 
       <request>
-        <http url='/questions/4020' version='1.1' method='GET'></http>
+        <http url="/users" method="GET" version="1.1"/>
       </request>
 
       <request>
-        <http url='/questions/4020' version='1.1' method='GET'></http>
+        <http url='/questions/1040' version='1.1' method='GET'></http>
+      </request>
+
+      <request>
+        <http url='/questions/1040' version='1.1' method='GET'></http>
       </request>
 
 	<request>
@@ -213,7 +209,7 @@ content_type="application/x-www-form-urlencoded" />
 
       <!-- Read Questions and Answers. Repeat for 50 times.-->
       <request>
-        <http url='/questions/6005' version='1.1' method='GET'></http>
+        <http url='/questions/2000' version='1.1' method='GET'></http>
       </request>
 
       <!-- User logout -->
