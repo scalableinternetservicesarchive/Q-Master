@@ -5,11 +5,13 @@ class UsersController < ApplicationController
   before_action :admin_user, only: :destroy
 
   def index
-  	 @q = User.ransack(params[:q])
-	 @users = @q.result(distinct: true).paginate(page: params[:page], per_page: 10)
-	 respond_to do |format|
-		format.html
-		format.js
+    if stale?(User.all)
+	   @q = User.ransack(params[:q])
+	   @users = @q.result.paginate(page: params[:page], per_page: 10)
+	 	respond_to do |format|
+			format.html
+			format.js
+		end
 	 end
   end
 
@@ -18,6 +20,7 @@ class UsersController < ApplicationController
 	 @question = @user.questions.build()
 	 @articles = @user.articles.paginate(page: params[:articles_page], per_page: 10 )
 	 @questions = @user.questions.paginate(page: params[:questions_page], per_page: 10 )
+	 fresh_when([@user, @articles, @questions])
   end
 
   def new
