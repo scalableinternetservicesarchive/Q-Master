@@ -4,17 +4,21 @@ class QuestionsController < ApplicationController
   before_action :correct_user, only: :destroy
 
   def index
-   #without includes(:user) is before and with is after
+   #before making optimizations
+    @q = Question.ransack(params[:q])
+	 @questions = @q.result.paginate(page: params[:page])
+
+   #after making optimizations
+=begin
     if stale?(Question.all)
       @q = Question.includes(:user).ransack(params[:q])
 	   @questions = @q.result.paginate(page: params[:page])
-#    @q = Question.ransack(params[:q])
-#	 @questions = @q.result.paginate(page: params[:page])
 	   respond_to do |format|
 		  format.html
 		  format.js
 	   end
 	 end
+=end
   end
 
   def show
