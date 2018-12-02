@@ -7,6 +7,8 @@
 	<%= f.submit %>
 <% end %>
 
+<% cache(cache_key_for_question_table) do %>
+
 <ul class="users">
 	<table>
 		<thead>
@@ -18,7 +20,11 @@
     		</tr>
   		</thead>
 		<tbody>
-   		<%=  render @questions %>
+   		<% @questions.each do |question| %>
+				<% cache question do %>
+					<%= render question %>
+				<% end %>
+			<% end %>
 		</tbody>
 	</table>
 	<aside align="left">
@@ -27,4 +33,4 @@
 </ul>
 
 
-
+<% end %>
