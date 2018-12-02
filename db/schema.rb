@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_08_212840) do
+ActiveRecord::Schema.define(version: 2018_12_01_234052) do
 
   create_table "articles", force: :cascade do |t|
     t.text "text"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 2018_11_08_212840) do
     t.integer "cached_weighted_score", default: 0
     t.integer "cached_weighted_total", default: 0
     t.float "cached_weighted_average", default: 0.0
+    t.index ["question_id"], name: "index_articles_on_question_id"
     t.index ["user_id", "created_at"], name: "index_articles_on_user_id_and_created_at"
   end
 
@@ -36,6 +37,7 @@ ActiveRecord::Schema.define(version: 2018_11_08_212840) do
     t.datetime "updated_at", null: false
     t.integer "user_id"
     t.index ["article_id"], name: "index_comments_on_article_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "questions", force: :cascade do |t|
@@ -44,6 +46,7 @@ ActiveRecord::Schema.define(version: 2018_11_08_212840) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "title"
+    t.index ["user_id"], name: "index_questions_on_user_id"
   end
 
   create_table "relationships", force: :cascade do |t|
