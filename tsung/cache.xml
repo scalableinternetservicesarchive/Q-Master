@@ -14,24 +14,24 @@
 
 
   <load>
-    <arrivalphase phase="1" duration="20" unit="second">
-      <users arrivalrate="49" unit="second"></users>
+    <arrivalphase phase="1" duration="30" unit="second">
+      <users arrivalrate="24" unit="second"></users>
     </arrivalphase>
 
     <arrivalphase phase="2" duration="10" unit="second">
       <users arrivalrate="1" unit="second"></users>
     </arrivalphase>
 
-    <arrivalphase phase="3" duration="20" unit="second">
-      <users arrivalrate="50" unit="second"></users>
+    <arrivalphase phase="3" duration="30" unit="second">
+      <users arrivalrate="25" unit="second"></users>
     </arrivalphase>
 
     <arrivalphase phase="4" duration="10" unit="second">
       <users arrivalrate="1" unit="second"></users>
     </arrivalphase>
 
-    <arrivalphase phase="5" duration="20" unit="second">
-      <users arrivalrate="51" unit="second"></users>
+    <arrivalphase phase="5" duration="30" unit="second">
+      <users arrivalrate="26" unit="second"></users>
     </arrivalphase>
 
     <!-- 
@@ -73,80 +73,8 @@
 
   <sessions>
 
-    <!-- Loadtest for writer -->
-    <session name="writer" probability="5" type="ts_http">
-
-      <!-- User login -->
-
-      <request subst="true">
-        <!-- Here the url for login should be "/sessions", instead of "/login"  -->
-        <http url="/sessions" method="POST" version="1.1" contents="session[email]=boyuan@ucsb.com&amp;session[password]=123456&amp;commit=Login" content_type="application/x-www-form-urlencoded" />
-      </request>
-
-
-      <!-- User post question -->
-      <request subst="true">
-        <http url="/questions" method="POST" version="1.1" contents="question[title]=QuestionTitle&amp;question[content]=QuestionContent&amp;commit=Post"
-content_type="application/x-www-form-urlencoded" />
-      </request>
-      
-      <!-- User create answer -->
-      <request subst="true">
-        <http url="/questions/1/articles" method="POST" version="1.1" contents="article[text]=6666666666666&amp;commit=CreateArticle&amp;question_id=1"
-content_type="application/x-www-form-urlencoded" />
-      </request>
-      
-
-
-
-      <!-- User logout -->
-      <request subst="true">
-        <http url="/signout" method="POST" version="1.1" contents="_method=delete" content_type="application/x-www-form-urlencoded"/>
-      </request>
-    </session>
-
-
-    <!-- Load test bewteen writer and reader -->
-    <session name="http-example" probability="10" type="ts_http">
-      <request>
-        <http url='/sessions' version='1.1' method='POST' contents="session[email]=boyuan@ucsb.com&amp;session[password]=123456&amp;commit=Sign+in" content_type="application/x-www-form-urlencoded"></http>
-      </request>
-
-      <request>
-        <http url="/users" method="GET" version="1.1"/>
-      </request>
-
-      <request>
-        <http url="/users?q[name_cont]=boyuan&amp;commit=Search" method="GET" version="1.1" />
-      </request>
-
-      <request>
-        <http url="/questions" method="GET" version="1.1"/>
-      </request>
-
-      <request>
-        <http url="/questions" method="POST" version="1.1" contents="question[title]=why+so+many+people+choose+to+stay+single&amp;question[content]=People+are+getting+more+and+more+nowadays&amp;commit=Post"/>
-      </request>
-
-      <request>
-        <http url="/questions/1100/articles" method="POST" version="1.1" contents="article[text]=i+want+to+answer&amp;commit=Create+Article" />
-      </request>
-      <request>
-        <http url="/questions/1100/articles" method="POST" version="1.1" contents="article[text]=i+have+a+great+answer&amp;commit=Create+Article" />
-      </request>
-
-      <request>
-        <http url="/articles/1/comments" method="POST" version="1.1" contents="comment[body]=this+answer+is+really+great&amp;commit=Create+Comment" />
-      </request>
-
-      <request>
-        <http url="/signout" method="POST" version="1.1" contents="_method=delete"/>
-      </request>
-
-    </session>
-
     <!-- Loadtest for Reader -->  
-    <session name="Reader" probability="80" type="ts_http">
+    <session name="Reader" probability="60" type="ts_http">
 
       <!-- User login -->
 
@@ -164,6 +92,31 @@ content_type="application/x-www-form-urlencoded" />
         <http url='/questions/1005' version='1.1' method='GET'></http>
       </request>
 
+
+      <request>
+        <http url='/questions/1005' version='1.1' method='GET'></http>
+      </request>
+
+      <request>
+        <http url='/questions/1005' version='1.1' method='GET'></http>
+      </request>
+
+      <request>
+        <http url='/questions/1005' version='1.1' method='GET'></http>
+      </request>
+
+
+
+
+      <request>
+        <http url="/users" method="GET" version="1.1"/>
+      </request>
+
+      <request>
+        <http url="/users" method="GET" version="1.1"/>
+      </request>
+
+
       <request>
         <http url="/users" method="GET" version="1.1"/>
       </request>
@@ -173,6 +126,31 @@ content_type="application/x-www-form-urlencoded" />
       </request>
 
       <request>
+        <http url="/users" method="GET" version="1.1"/>
+      </request>
+
+      <request>
+        <http url="/users" method="GET" version="1.1"/>
+      </request>
+
+      <request>
+        <http url="/users" method="GET" version="1.1"/>
+      </request>
+
+      <request>
+        <http url="/users" method="GET" version="1.1"/>
+      </request>
+
+      <request>
+        <http url="/users" method="GET" version="1.1"/>
+      </request>
+
+      <request>
+        <http url="/users" method="GET" version="1.1"/>
+      </request>
+
+
+      <request>
         <http url='/questions/1040' version='1.1' method='GET'></http>
       </request>
 
@@ -180,13 +158,86 @@ content_type="application/x-www-form-urlencoded" />
         <http url='/questions/1040' version='1.1' method='GET'></http>
       </request>
 
-	<request>
+      <request>
+        <http url='/questions/1040' version='1.1' method='GET'></http>
+      </request>
+
+      <request>
+        <http url='/questions/1040' version='1.1' method='GET'></http>
+      </request>
+      <request>
+        <http url='/questions/1040' version='1.1' method='GET'></http>
+      </request>
+
+      <request>
+        <http url='/questions/1040' version='1.1' method='GET'></http>
+      </request>
+      <request>
+        <http url='/questions/1040' version='1.1' method='GET'></http>
+      </request>
+
+      <request>
+        <http url='/questions/1040' version='1.1' method='GET'></http>
+      </request>
+      <request>
+        <http url='/questions/1040' version='1.1' method='GET'></http>
+      </request>
+
+      <request>
+        <http url='/questions/1040' version='1.1' method='GET'></http>
+      </request>
+      <request>
+        <http url='/questions/1040' version='1.1' method='GET'></http>
+      </request>
+
+      <request>
+        <http url='/questions/1040' version='1.1' method='GET'></http>
+      </request>
+
+
+
+      <request>
         <http url="/questions" method="GET" version="1.1"/>
       </request>
 
 	<request>
         <http url="/questions" method="GET" version="1.1"/>
       </request>
+
+      <request>
+        <http url="/questions" method="GET" version="1.1"/>
+      </request>
+
+        <request>
+        <http url="/questions" method="GET" version="1.1"/>
+      </request>
+
+      <request>
+        <http url="/questions" method="GET" version="1.1"/>
+      </request>
+
+        <request>
+        <http url="/questions" method="GET" version="1.1"/>
+      </request>
+
+      <request>
+        <http url="/questions" method="GET" version="1.1"/>
+      </request>
+
+        <request>
+        <http url="/questions" method="GET" version="1.1"/>
+      </request>
+
+      <request>
+        <http url="/questions" method="GET" version="1.1"/>
+      </request>
+
+        <request>
+        <http url="/questions" method="GET" version="1.1"/>
+      </request>
+
+
+
 
 
       <!-- User logout -->
@@ -198,7 +249,7 @@ content_type="application/x-www-form-urlencoded" />
     
     <!-- Loadtest for Questions with tons of answers & comments (50 answers per question, 20 comments per answers)-->  
     
-    <session name="ComplexQuestions" probability="5" type="ts_http">
+    <session name="ComplexQuestions" probability="40" type="ts_http">
 
       <!-- User login -->
 
